@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import session
+import os
 
 app = Flask(__name__)
 
@@ -9,7 +10,7 @@ i = 0
 def index():
     global i
     i += 1
-    return f"Hello, World! You are visitor #{i}"
+    return f"Hello, World! You are visitor #{i}, and I am {os.system(\"whoami\")}"
 
 
 if __name__ == "__main__":
