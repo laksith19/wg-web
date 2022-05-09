@@ -1,13 +1,15 @@
 from flask import Flask
+from flask import session
 
 app = Flask(__name__)
 
-visitors = 0
+i = 0
 
 @app.route("/")
 def index():
-    visitors += 1
-    return f"Hello, World! You are visitor #{visitors}"
+    global i
+    i += 1
+    return f"Hello, World! You are visitor #{i}"
 
 
 if __name__ == "__main__":
