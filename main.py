@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import session
-import os
+import subprocess
 
 app = Flask(__name__)
 
@@ -10,7 +10,8 @@ i = 0
 def index():
     global i
     i += 1
-    return f"Hello, World! You are visitor #{i}, and I am {os.system(\"whoami\")}"
+    name = subprocess.run(["whoami"], capture_output=True).stdout.decode("utf-8")
+    return f"Hello, World! You are visitor #{i}, and I am {name}"
 
 
 if __name__ == "__main__":
