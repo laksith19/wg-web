@@ -2,9 +2,12 @@ from flask import Flask
 
 app = Flask(__name__)
 
+visitors = 0
+
 @app.route("/")
 def index():
-    return "Hello, World!"
+    visitors += 1
+    return f"Hello, World! You are visitor #{visitors}"
 
 
 if __name__ == "__main__":
