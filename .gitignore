@@ -131,3 +131,6 @@ dmypy.json
 
 # OCF hosting htaccess
 .htaccess
+
+# Instances
+instance/
