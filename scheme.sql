@@ -1,0 +1,17 @@
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS peers;
+
+
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL
+);
+
+CREATE TABLE peer (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER NOT NULL,
+    pubkey TEXT NOT NULL,
+    aip TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user (id)
+)
